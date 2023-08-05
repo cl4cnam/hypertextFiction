@@ -1,0 +1,40 @@
+#!syntax:pythonic
+
+var choiceSpace
+
+def newChoice():
+	choiceSpace := displayNewMessageIn('', 'body/self')
+
+def waitForChoice(p_message):
+	awaitClickBeep(displayNewMessageIn(p_message, choiceSpace))
+
+def displayMessage(p_message):
+	var messageElt := displayNewMessageIn(p_message, 'body/nohighlight')
+	var len := js (p_message):
+		return p_message.length
+	parallel exitAfter 1 finished:
+		waitSeconds(len/20)
+		awaitClickBeep(messageElt)
+
+displayMessage("Introductive text.")
+
+newChoice()
+parallel(select 1):
+	select:
+		waitForChoice("Choice #1")
+	do:
+		displayMessage("Text #1")
+		newChoice()
+		parallel(select 1):
+			select:
+				waitForChoice("Choice 1.1")
+			do:
+				displayMessage("Text 1.1")
+			select:
+				waitForChoice("Choice 1.2")
+			do:
+				displayMessage("Text 1.2")
+	select:
+		waitForChoice("Choice #2")
+	do:
+		displayMessage("Text #2")
