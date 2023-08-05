@@ -1,0 +1,12 @@
+p.clicked {
+	background-color: #00c000;
+	font-weight: bold
+}
+
+p.nohighlight {
+	border-color: #00c000;
+	background-color: #c0ffc0;
+	margin-left: 10px;
+	margin-right: auto;
+	font-weight: normal;
+}
