@@ -16,25 +16,66 @@ def displayMessage(p_message):
 		waitSeconds(len/20)
 		awaitClickBeep(messageElt)
 
-displayMessage("Introductive text.")
+displayMessage("C'est une belle journée, temps idéal pour une promenade en forêt.")
+displayMessage("Equipé(e) de votre sac à dos, vous empruntez le chemin principal qui mène à la cabane de bucheron, quand vous entendez un bruit sur votre droite.")
 
 newChoice()
 parallel(select 1):
 	select:
-		waitForChoice("Choice #1")
+		waitForChoice("Vous décidez d'aller voir")
 	do:
-		displayMessage("Text #1")
+		displayMessage("Vous quittez le chemin et vous dirigez lentement vers le bruit qui semble avoir cessé, quand tout à coup un petit épagneul surgit de derrière les buissons. Il est visiblement abandonné.")
 		newChoice()
 		parallel(select 1):
 			select:
-				waitForChoice("Choice 1.1")
+				waitForChoice("Vous le laissez là et reprenez votre route.")
 			do:
-				displayMessage("Text 1.1")
+				displayMessage("C'est la fin de l'aventure.")
 			select:
-				waitForChoice("Choice 1.2")
+				waitForChoice("Vous souriez en le regardant.")
 			do:
-				displayMessage("Text 1.2")
+				displayMessage("Il vous fait la fête. Vous décidez de l'adopter. Le toutou vous suit partout désormais et c'est la fin de l'aventure.")
 	select:
-		waitForChoice("Choice #2")
+		waitForChoice("Vous décidez de continuer votre route.")
 	do:
-		displayMessage("Text #2")
+		displayMessage("Vous continuez votre chemin, et le bruit semble vous suivre. Vous accélérez et le bruit s'éloigne peu à peu. Soulagé(e) vous apercevez la cabane qui se profile derrière les arbres. Vous débouchez dans la clairière et avez le sentiment d'être observé(e).")
+		newChoice()
+		parallel(select 1):
+			select:
+				waitForChoice("Vous vous retournez.")
+			do:
+				displayMessage("Vous vous retournez et apercevez juste derrière les arbres une tête d'un petit épagneul qui vous regarde, la langue pendue, assis sur son arrière train. Voyant que vous l'observez, il se met à japper.")
+				newChoice()
+				parallel(select 1):
+					select:
+						waitForChoice("Vous l'appelez.")
+					do:
+						displayMessage("Le chien vient vers vous. Il est visiblement abandonné. Vous décidez de l'adopter. Le toutou vous suit partout désormais et c'est la fin de l'aventure.")
+					select:
+						waitForChoice("Vous le laissez japper.")
+					do:
+						displayMessage("Vous continuez votre chemin, le chien repart, comme attiré par un autre bruit et c'est la fin de l'aventure.")
+			select:
+				waitForChoice("Vous continuez de vous diriger vers la cabane.")
+			do:
+				displayMessage("Vous marchez d'un pas qui se veut assuré, en sifflotant, pour vous donner du courage et surtout montrer que vous n'avez pas peur. Arrivé(e) devant la porte, vous entrez dans la cabane et refermez la porte derrière vous. Vous soufflez de soulagement, quand on gratte à la porte.")
+				newChoice()
+				parallel(select 1):
+					select:
+						waitForChoice("Vous regardez par la fenêtre.")
+					do:
+						displayMessage("Vous apercevez un petit épagneul gratter la porte.")
+						newChoice()
+						parallel(select 1):
+							select:
+								waitForChoice("Vous lui ouvrez la porte.")
+							do:
+								displayMessage("Le chien vous fait la fête. Il est visiblement abandonné. Vous décidez de l'adopter. Le toutou vous suit partout désormais et c'est la fin de l'aventure.")
+							select:
+								waitForChoice("Vous attendez qu'il reparte.")
+							do:
+								displayMessage("Vous attendez un moment, sans bouger et le grattement finit par cesser, le chien s'éloigne et semble faire le tour de la cabane puis le silence de nouveau. Vous êtes seul et c'est la fin de l'aventure.")
+					select:
+						waitForChoice("Vous ne faites aucun mouvement.")
+					do:
+						displayMessage("Vous attendez un moment, sans bouger et le grattement finit par cesser, des bruits d'herbe s'éloignent et semblent faire le tour de la cabane puis le silence de nouveau. Vous êtes seul et c'est la fin de l'aventure.")
