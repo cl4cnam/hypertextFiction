@@ -10,3 +10,7 @@ p.nohighlight {
 	margin-right: auto;
 	font-weight: normal;
 }
+
+p.other {
+	cursor: pointer;
+}
