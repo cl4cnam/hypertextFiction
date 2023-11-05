@@ -1,0 +1,69 @@
+@import url(composant);
+
+@coulFondLien : linear-gradient(to bottom, #6cc, #3aadad);
+@bordLien : #399 3px outset;
+
+html {
+	/* lui-même" */
+	/* ========================================== */
+	min-height: 100vh;
+	
+	/* par rapport à l'INtérieur de "html" */
+	/* ========================================== */
+	font-family: cursive;
+	text-align: center;
+	word-spacing: 3px;
+	letter-spacing: 0.3px;
+	color: #840;
+}
+
+body {
+	/* par rapport à l'EXtérieur de "body" */
+	/* ========================================== */
+	margin: 0px;
+	padding: 0px;
+	
+	/* lui-même" */
+	/* ========================================== */
+	background: linear-gradient(to bottom, #f0ffff, #9ff 40%, #8f8 60%);
+	background-repeat: no-repeat;
+	
+	/* par rapport à l'INtérieur de "body" */
+	/* ========================================== */
+	overflow: hidden;
+	text-align-last: center;
+}
+
+.scene {
+	/* lui-même" */
+	/* ========================================== */
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	animation: 5s slidein;
+	/*opacity: 0.99;*/
+}
+
+@keyframes slidein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.zoneChoix{
+	.choix(@coulFondLien, #933 , @bordLien)
+}
+
+.zoneDialogue{
+	.personnage();
+	/* outline: 2px dashed purple; */
+}
+
+.drag{
+	.draggable();
+}
+
